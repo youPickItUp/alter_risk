@@ -1,4 +1,4 @@
-module Main where
+module InOut where
 
 import Data.Maybe
 import Text.Read
@@ -10,7 +10,7 @@ readCorrectly [] = True
 readCorrectly (x:xs) = if isNothing x then False
                        else readCorrectly xs
 
--- | Function checks if input matches expected format - two nonnegative Ints. 
+-- | Function checks if input matches expected format - two nonnegative Ints.
 correctArg :: String -> Bool
 correctArg [] = False
 correctArg argLine = let wordsList = words argLine in
@@ -28,8 +28,8 @@ correctArg argLine = let wordsList = words argLine in
 
 
 -- | Passes an arguments and prints the result - approximated odds of annihilation of defending army.
-main :: IO ()
-main = do
+main' :: IO ()
+main' = do
     line <- getLine
     if correctArg line then do
       let a = head ((map read (words line)) :: [Int])
@@ -38,4 +38,4 @@ main = do
       print x
     else do
       putStrLn "Należy podać dwa argumenty (Int) - wielkości odpowiednio armii atakującej i broniącej."
-      main
+      main'

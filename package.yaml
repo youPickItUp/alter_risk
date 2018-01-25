@@ -22,6 +22,7 @@ description:         Please see the README on Github at <https://github.com/kami
 dependencies:
 - base >= 4.7 && < 5
 - MonadRandom
+- QuickCheck
 
 library:
   source-dirs: src
