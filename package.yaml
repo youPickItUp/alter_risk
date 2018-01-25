@@ -1,0 +1,49 @@
+name:                risk
+version:             0.1.0.0
+github:              "kamilok1965/risk"
+license:             BSD3
+author:              "Wojciech Basiura, Kamil Doległo"
+maintainer:          "doleglo@student.agh.edu.pl"
+copyright:           "2018 Wojciech Basiura, Kamil Doległo"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Simple clone of Risk game
+# category:            Games
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on Github at <https://github.com/kamilok1965/risk#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- MonadRandom
+
+library:
+  source-dirs: src
+
+executables:
+  risk-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - risk
+
+tests:
+  risk-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - risk
